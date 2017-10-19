@@ -3,7 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorSelectedBottomBar">#0084ff</color>
+    <color name="colorSelectedBottomBar">#1a1a1a</color>
     <color name="colorUnSelectedBottomBar">#979797</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="color_holo_orange_light">#1a1a1a</color>
 </resources>

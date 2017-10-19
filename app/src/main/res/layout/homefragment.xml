@@ -25,6 +25,7 @@
                 android:id="@+id/tabLayout"
                 android:layout_marginTop="-8dp"
                 app:tabPaddingTop="10dp"
+                app:tabIndicatorColor="@color/color_holo_orange_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabSelectedTextColor="#000"
