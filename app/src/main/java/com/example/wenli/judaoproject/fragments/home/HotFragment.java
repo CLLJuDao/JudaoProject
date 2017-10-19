@@ -1,4 +1,4 @@
-package com.example.wenli.judaoproject.fragments;
+package com.example.wenli.judaoproject.fragments.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,13 +11,11 @@ import com.example.wenli.judaoproject.R;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Created by wenli on 2017/10/18.
+ * Created by wenli on 2017/10/19.
  */
 
-public class NewsFragment extends SupportFragment {
-    @Nullable
-    @Override
+public class HotFragment extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.newsfragment,container,false);
+        return inflater.inflate(R.layout.home_hotfragment,container,false);
     }
 }

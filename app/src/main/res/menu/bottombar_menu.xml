@@ -4,21 +4,21 @@
     <item
         android:title="首页"
         android:icon="@drawable/ic_toys"
-        android:fragment="com.example.wenli.judaoproject.fragments.HomeFragment"
+        android:fragment="com.example.wenli.judaoproject.fragments.home.HomeFragment"
         ></item>
     <item
         android:title="发现"
         android:icon="@drawable/ic_people"
-        android:fragment="com.example.wenli.judaoproject.fragments.CircleFragment"
+        android:fragment="com.example.wenli.judaoproject.fragments.circle.CircleFragment"
         ></item>
     <item
         android:title="消息"
         android:icon="@drawable/ic_chat"
-        android:fragment="com.example.wenli.judaoproject.fragments.NewsFragment"
+        android:fragment="com.example.wenli.judaoproject.fragments.news.NewsFragment"
         ></item>
     <item
         android:title="我的"
         android:icon="@drawable/ic_account_circle"
-        android:fragment="com.example.wenli.judaoproject.fragments.MineFragment"
+        android:fragment="com.example.wenli.judaoproject.fragments.mine.MineFragment"
         ></item>
 </menu>

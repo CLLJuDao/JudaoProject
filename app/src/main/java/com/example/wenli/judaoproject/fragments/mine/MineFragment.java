@@ -1,4 +1,4 @@
-package com.example.wenli.judaoproject.fragments;
+package com.example.wenli.judaoproject.fragments.mine;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
