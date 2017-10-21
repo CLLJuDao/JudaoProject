@@ -3,22 +3,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="首页"
-        android:icon="@drawable/ic_toys"
+        android:icon="@drawable/ic_dashboard_white_48dp"
         android:fragment="com.example.wenli.judaoproject.fragments.home.HomeFragment"
         ></item>
     <item
         android:title="发现"
-        android:icon="@drawable/ic_people"
+        android:icon="@drawable/ic_account_child_white_48dp"
         android:fragment="com.example.wenli.judaoproject.fragments.circle.CircleFragment"
         ></item>
     <item
         android:title="消息"
-        android:icon="@drawable/ic_chat"
+        android:icon="@drawable/ic_question_answer_white_48dp"
         android:fragment="com.example.wenli.judaoproject.fragments.news.NewsFragment"
         ></item>
     <item
         android:title="我的"
-        android:icon="@drawable/ic_account_circle"
+        android:icon="@drawable/ic_account_circle_white_48dp"
         android:fragment="com.example.wenli.judaoproject.fragments.mine.MineFragment"
         ></item>
 </menu>

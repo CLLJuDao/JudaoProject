@@ -32,8 +32,8 @@ public class MainActivity extends SupportActivity {
                 if(selectedPosition==2){
 //                    startActivityForResult(new Intent(MainActivity.this,LoginActivity.class),1);
                     //用户切换item
-                    bar.setItemSelected(3,true);
-                    bar.disMissNum(2);
+//                   bar.setItemSelected(3,true);
+//                    bar.disMissNum(2);
                     //返回false表示不响应点击事件
                     return true;
                 }
