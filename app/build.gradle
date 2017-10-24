@@ -28,7 +28,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.+'
     compile 'com.android.support:recyclerview-v7:26.+'
-
+    compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.chen.wakehao.library:bottom-navigation-bar:1.0.0'
     compile 'me.yokeyword:fragmentation:1.1.6'
     testCompile 'junit:junit:4.12'
