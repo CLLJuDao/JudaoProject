@@ -2,6 +2,9 @@ package com.example.wenli.judaoproject.fragments.home;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +14,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.wenli.judaoproject.R;
+import com.example.wenli.judaoproject.Utils.DrawableTintUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -44,12 +50,18 @@ public class DynamicFragment extends SupportFragment {
     private RecyclerView recyclerView;
     //模拟数据，可替换
     private List<String> data;
+    private ImageView jiuji;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         //导入布局文件
         View view = inflater.inflate(R.layout.home_dynamicfragment,container,false);
+        //改变图片颜色
+        jiuji = view.findViewById(R.id.jiuji);
+        Drawable src = jiuji.getDrawable();
+        jiuji.setImageDrawable(DrawableTintUtil.tintDrawable(src, ColorStateList.valueOf(Color.BLUE)));
         //初始化更多按钮
         most = view.findViewById(R.id.most);
         //初始化数据
