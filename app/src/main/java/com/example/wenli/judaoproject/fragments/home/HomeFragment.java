@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 
 public class HomeFragment extends SupportFragment {
+    private static final String TAG = "HomeFragment";
     private List<Fragment> list;
     private String[] titles = {"动态", "热门"};
     private TabLayout tabLayout;
@@ -29,6 +31,7 @@ public class HomeFragment extends SupportFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         View view = inflater.inflate(R.layout.homefragment,container,false);
         fragmentManager = getFragmentManager();
         viewPager = view.findViewById(R.id.viewpager);
@@ -60,6 +63,7 @@ public class HomeFragment extends SupportFragment {
         public int getCount() {
             return list.size();
         }
+
 
         //重写这个方法，将设置每个Tab的标题
         @Override

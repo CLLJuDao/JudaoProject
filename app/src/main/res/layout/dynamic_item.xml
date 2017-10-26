@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="4dp"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingTop="10dp"
+                android:layout_height="45dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/touxiang"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/ic_account_circle"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@id/touxiang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp">
+                    <TextView
+                        android:text="文立"
+                        android:id="@+id/username"
+                        android:textColor="#1a1a1a"
+                        android:textSize="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/username"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#D0D0D0"
+                            android:text="今天  11：13"
+                            android:textSize="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="来自  文立"
+                            android:textSize="10dp"
+                            android:textColor="#d0d0d0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    >
+                    <TextView
+                        android:text="×"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:maxLines="4"
+                    android:text="王府井维护妇女就会疯狂 是否服务UHF服务发货发房价平稳服务日无法违反无附件为范围配方法违反批,
+                                王府井维护妇女就会疯狂 是否服务UHF服务发货发房价平稳服务日无法违反无附件为范围配方法违反批,
+                                   王府井维护妇女就会疯狂 是否服务UHF服务发货发房价平稳服务日无法违反无附件为范围配方法违反批
+                                   王府井维护妇女就会疯狂 是否服务UHF服务发货发房价平稳服务日无法违反无附件为范围配方法违反批 "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
