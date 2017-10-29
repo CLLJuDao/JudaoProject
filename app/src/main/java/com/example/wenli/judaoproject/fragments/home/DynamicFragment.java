@@ -24,7 +24,11 @@ import android.widget.Toast;
 
 import com.example.wenli.judaoproject.R;
 import com.example.wenli.judaoproject.Utils.DrawableTintUtil;
+import com.example.wenli.judaoproject.Utils.DynamicRecyclerView;
+import com.example.wenli.judaoproject.adapter.DynamicAdapter;
+import com.example.wenli.judaoproject.bean.DynamicItem;
 import com.example.wenli.judaoproject.fragments.base.BaseLazyFragment;
+import com.example.wenli.judaoproject.urls.ImageUrl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +41,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 public class DynamicFragment extends SupportFragment {
     private static final String TAG = "DynamicFragment";
+    //属性组件
     private SwipeRefreshLayout swipeRefresh;
     //更多按钮
     private LinearLayout most;
@@ -55,14 +60,15 @@ public class DynamicFragment extends SupportFragment {
     //重复点击判定
     private boolean reclick = false;
     //列表
-    private RecyclerView recyclerView;
+    private DynamicRecyclerView dynamicRecyclerView;
     //模拟数据，可替换
-    private List<String> data;
+    private List<DynamicItem> data;
     private ImageView jiuji;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -72,37 +78,71 @@ public class DynamicFragment extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "11onCreateView: ");
 
+        data = new ArrayList<>();
         //导入布局文件
         View view = inflater.inflate(R.layout.home_dynamicfragment,container,false);
+        //下啊刷新
+        swipeRefresh = view.findViewById(R.id.swipe_refresh);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshDynamic();
+            }
+        });
         //初始化刷新组件
         swipeRefresh=view.findViewById(R.id.swipe_refresh);
         //改变图片颜色
         jiuji = view.findViewById(R.id.jiuji);
         Drawable src = jiuji.getDrawable();
         jiuji.setImageDrawable(DrawableTintUtil.tintDrawable(src, ColorStateList.valueOf(Color.BLUE)));
-        //初始化数据
-        data = new ArrayList<String>();
-        //初始化recyclerview
-        recyclerView = view.findViewById(R.id.dynamic_content);
         //初始化样式
         initFragment(view);
+        initImageUrls();
+        //初始化recyclerview
+        dynamicRecyclerView = view.findViewById(R.id.dynamic_content);
+        dynamicRecyclerView.init(swipeRefresh);
         //定义recyclerview布局格式
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         //设置布局
-        recyclerView.setLayoutManager(layoutManager);
-        //添加数据
-        for (int i=0;i<50;i++){
-            data.add("test"+i);
-        }
+        dynamicRecyclerView.setLayoutManager(layoutManager);
         //定义适配器
         DynamicAdapter adapter = new DynamicAdapter(data);
         //设置适配器
-        recyclerView.setAdapter(adapter);
+        dynamicRecyclerView.setAdapter(adapter);
 
 
         return view;
     }
+    private void refreshDynamic(){
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefresh.setRefreshing(false);
+                    }
+                });
+
+            }
+        });
+    }
+    private void initImageUrls() {
+        int i = ImageUrl.imageList().size();
+        for (int j=0;j<i;j++){
+            DynamicItem dynamicItem = new DynamicItem(ImageUrl.imageList().get(j));
+            data.add(dynamicItem);
+        }
+
+    }
+
     //初始化组件
     public  void initFragment(View view){
         most = view.findViewById(R.id.most);
@@ -137,53 +177,7 @@ public class DynamicFragment extends SupportFragment {
 
         });
     }
-    //测试用例，RecyclerView的适配器
-    class DynamicAdapter extends RecyclerView.Adapter<DynamicAdapter.ViewHolder>{
 
-//        protected boolean isScrolling = false;
-         class ViewHolder extends RecyclerView.ViewHolder{
-            TextView test;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                test = itemView.findViewById(R.id.test_text);
-            }
-        }
-
-//        public void setScrolling(boolean scrolling) {
-//            isScrolling = scrolling;
-//        }
-        public DynamicAdapter(List<String> list) {
-
-            data = list;
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.test_item,parent,false);
-            ViewHolder holder = new ViewHolder(view);
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-//            ViewHolder viewholder = (ViewHolder) holder;
-//            if (!TextUtils.isEmpty(data.getAvatarUrl()) && !isScrolling) {
-//                // 这里可以用Glide等网络图片加载库
-//            } else {
-//                holder.avatarImg.setImageResource(占位图本地资源);
-//            }
-            holder.test.setText(data.get(position));
-        }
-
-        @Override
-        public int getItemCount() {
-            return data.size();
-        }
-
-
-
-    }
 
 
 }

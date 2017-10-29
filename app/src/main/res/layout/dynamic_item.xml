@@ -88,10 +88,12 @@
                                    王府井维护妇女就会疯狂 是否服务UHF服务发货发房价平稳服务日无法违反无附件为范围配方法违反批 "
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </android.support.v7.widget.RecyclerView>
+                <ImageView
+                    android:id="@+id/imageglide"
+                    android:scaleType="centerCrop"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp" />
+
             </LinearLayout>
         </LinearLayout>
 
